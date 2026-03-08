@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 
-const destinations = [
+let destinations = [
   {
     id: 1,
     name: "Paris",
@@ -265,4 +265,20 @@ const destinations = [
 
 export async function GET() {
   return NextResponse.json(destinations)
+}
+
+export async function POST(req) {
+  const body = await req.json();
+  const newDest = {
+    id: destinations.length + 1,
+    ...body
+  };
+  destinations.push(newDest);
+  return NextResponse.json({ success: true, destination: newDest });
+}
+
+export async function DELETE(req, { params }) {
+  const id = parseInt(params.id)
+  destinations = destinations.filter(d => d.id !== id)
+  return NextResponse.json({ success: true })
 }

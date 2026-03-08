@@ -26,7 +26,7 @@ export default async function DestinationDetails({ params }) {
       <p className="text-center text-lg text-black dark:text-white">{destination.country}</p>
 
       <div className="relative w-full h-[400px] rounded-xl overflow-hidden shadow-lg">
-        <Image src={destination.image} alt={destination.name} fill className="object-cover" />
+        <img src={destination.image} alt={destination.name} className="object-cover" />
       </div>
 
       <p className="text-black dark:text-white text-lg">{destination.description}</p>

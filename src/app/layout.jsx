@@ -3,6 +3,7 @@ import "./globals.css";
 
 import Footer from "@/components/Home/Footer/Footer";
 import Navbar from "@/components/Home/Navbar/Navbar";
+import NextAuthProvider from "@/provider/NextAuthProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +17,8 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Travel Story",
-  description: "Find destinations, share travel experiences, and create your own travel stories in one place.",
+  description:
+    "Find destinations, share travel experiences, and create your own travel stories in one place.",
 };
 
 export default function RootLayout({ children }) {
@@ -25,15 +27,15 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header>
-          <Navbar></Navbar>
-        </header>
-        <main>
-          {children}
-        </main>
-        <footer>
-          <Footer></Footer>
-        </footer>
+        <NextAuthProvider>
+          <header>
+            <Navbar></Navbar>
+          </header>
+          <main>{children}</main>
+          <footer>
+            <Footer></Footer>
+          </footer>
+        </NextAuthProvider>
       </body>
     </html>
   );

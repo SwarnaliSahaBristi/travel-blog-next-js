@@ -91,10 +91,9 @@ export default function Destinations() {
 
             <div className="relative w-full h-48">
 
-              <Image
+              <img
                 src={dest.image}
                 alt={dest.name}
-                fill
                 className="object-cover"
               />
 
