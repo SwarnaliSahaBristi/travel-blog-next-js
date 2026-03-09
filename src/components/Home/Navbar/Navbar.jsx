@@ -48,7 +48,6 @@ export default function Navbar() {
           <Link href="/destinations-add">Add Destination</Link>
           <Link href="/destinations-manage">Manage Destination</Link>
           <Link href="/stories">Stories</Link>
-          <Link href="/explore">Explore</Link>
           <Link href="/about">About</Link>
         </div>
 
@@ -88,7 +87,6 @@ export default function Navbar() {
               <Link href="/destinations-add">Add Destination</Link>
               <Link href="/destinations-manage">Manage Destination</Link>
               <Link href="/stories">Stories</Link>
-              <Link href="/explore">Explore</Link>
               <Link href="/about">About</Link>
               <Link href="/authlogin" passHref>
                 <Button variant="outline">Login</Button>

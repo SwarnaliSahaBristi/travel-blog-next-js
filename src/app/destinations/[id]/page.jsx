@@ -7,6 +7,7 @@ export default async function DestinationDetails({ params }) {
   const { id } = await params
   const numericId = Number(id)
 
+  // https://travel-blog-next-js-delta.vercel.app
   const res = await fetch("http://localhost:3000/api/destinations", { cache: "no-store" })
   const data = await res.json()
 

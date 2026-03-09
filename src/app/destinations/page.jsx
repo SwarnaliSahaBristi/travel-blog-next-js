@@ -132,12 +132,6 @@ export default function Destinations() {
                   </Link>
                 </Button>
 
-                <Button variant="outline" size="sm" asChild>
-                  <Link href="/explore">
-                    Explore
-                  </Link>
-                </Button>
-
               </div>
 
             </div>
