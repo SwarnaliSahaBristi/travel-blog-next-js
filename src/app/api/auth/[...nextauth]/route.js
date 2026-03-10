@@ -39,7 +39,6 @@ export const authOptions = {
     }),
   ],
 
-  // ⭐ ADD THIS
   pages: {
     signIn: "/auth/login",
   },

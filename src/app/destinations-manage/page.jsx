@@ -97,9 +97,6 @@ export default function ManageDestinationsPage() {
     <div className="max-w-6xl mx-auto p-8">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-center">Manage Destinations</h1>
-        <Button variant="outline" onClick={toggleTheme}>
-          {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-        </Button>
       </div>
 
       {loading ? (

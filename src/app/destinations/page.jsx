@@ -152,7 +152,7 @@ export default function Destinations() {
             className={`px-4 py-2 rounded-md border ${
               page === i + 1
                 ? "bg-black text-white"
-                : "bg-white"
+                : "bg-white text-black"
             }`}
           >
             {i + 1}

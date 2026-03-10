@@ -56,7 +56,7 @@ export default function Hero() {
             <Button size="lg">Start Exploring</Button>
           </Link>
           <Link href="/stories">
-            <Button variant="outline" className='text-black' size="lg">Read Stories</Button>
+            <Button variant="outline" className='text-black dark:text-white dark:bg-black' size="lg">Read Stories</Button>
           </Link>
         </div>
 
