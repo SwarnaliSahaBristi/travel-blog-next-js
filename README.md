@@ -134,7 +134,7 @@ GOOGLE_CLIENT_SECRET=your_GOOGLE_CLIENT_SECRET
 NEXTAUTH_SECRET=your_secret
 MONGODB_URI=your_mongodb_connection_string
 DB_NAME=your_db_name
-CLIENT_SERVER=your_client_server
+CLIENT_SERVER=your_CLIENT_SERVER
 
 ```
 
@@ -144,7 +144,8 @@ CLIENT_SERVER=your_client_server
 Open:
 
 ```
-https://travel-blog-next-js-delta.vercel.app/
+http://localhost:3000/
+
 ```
 
 ---
