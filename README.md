@@ -170,7 +170,7 @@ Route protection is implemented using **Next.js proxy middleware with NextAuth t
 ![Stories](/public/screenshots/Screenshot%202026-03-13%20142352.png)
 
 ### Destinations Page
-![Destinations](/public/screenshots/Screenshot%202026-03-13%20142352.png)
+![Destinations](/public/screenshots/Screenshot%202026-03-13%20142315.png)
 
 ---
 
