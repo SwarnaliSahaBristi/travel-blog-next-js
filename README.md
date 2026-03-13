@@ -1,4 +1,4 @@
-# 🌍 TravelStory
+# TravelStory
 
 TravelStory is a modern travel web application where users can explore destinations, share travel experiences, and create their own travel stories. The platform allows travelers to discover new places and document their journeys in one place.
 
@@ -134,7 +134,7 @@ GOOGLE_CLIENT_SECRET=your_GOOGLE_CLIENT_SECRET
 NEXTAUTH_SECRET=your_secret
 MONGODB_URI=your_mongodb_connection_string
 DB_NAME=your_db_name
-CLIENT_SERVER=https://travel-blog-next-js-delta.vercel.app/
+CLIENT_SERVER=your_client_server
 
 ```
 
