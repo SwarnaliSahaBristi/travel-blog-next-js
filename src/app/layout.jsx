@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/Home/Footer/Footer";
 import Navbar from "@/components/Home/Navbar/Navbar";
 import NextAuthProvider from "@/provider/NextAuthProvider";
+import Hero from "@/components/Home/Hero/Hero";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +30,7 @@ export default function RootLayout({ children }) {
       >
         <NextAuthProvider>
           <header>
-            <Navbar></Navbar>
+            <Hero></Hero>
           </header>
           <main>{children}</main>
           <footer>
