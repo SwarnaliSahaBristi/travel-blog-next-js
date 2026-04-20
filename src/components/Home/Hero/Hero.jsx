@@ -7,15 +7,16 @@ import Link from "next/link";
 export default function Hero() {
   const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState("dark");
+  const [showDestinations, setShowDestinations] = useState(false);
 
-  /* 🌗 Load saved theme */
+  /* 🌗 Load Theme */
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "dark";
     setTheme(savedTheme);
     document.documentElement.classList.toggle("dark", savedTheme === "dark");
   }, []);
 
-  /* 🌗 Toggle theme */
+  /* 🌗 Toggle Theme */
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
     setTheme(newTheme);
@@ -24,7 +25,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden text-white dark:text-white">
+    <section className="relative min-h-screen overflow-hidden text-white">
 
       {/* 🎥 Background Video */}
       <video
@@ -52,13 +53,60 @@ export default function Hero() {
         </h1>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex gap-6 text-sm font-medium">
-          <Link href="/">Home</Link>
-          <Link href="/destinations">Destinations</Link>
-          <Link href="/destinations-add">Add Destination</Link>
-          <Link href="/destinations-manage">Manage</Link>
-          <Link href="/stories">Stories</Link>
-          <Link href="/about">About</Link>
+        <nav className="hidden lg:flex gap-6 text-sm font-medium items-center">
+
+          {/* Home */}
+          <Link href="/" className="relative group">
+            Home
+            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-400 transition-all group-hover:w-full"></span>
+          </Link>
+
+          {/* Destinations Dropdown */}
+          <div className="relative group cursor-pointer">
+
+            <div className="flex items-center gap-1">
+              <span>Destinations</span>
+              <span className="transition-transform group-hover:rotate-180">
+                ⌄
+              </span>
+            </div>
+
+            <div className="absolute top-8 left-0 bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 min-w-[200px]">
+
+              <Link
+                href="/destinations"
+                className="block px-4 py-2 hover:bg-white/20 rounded-t-xl"
+              >
+                All Destinations
+              </Link>
+
+              <Link
+                href="/destinations-add"
+                className="block px-4 py-2 hover:bg-white/20"
+              >
+                Add Destination
+              </Link>
+
+              <Link
+                href="/destinations-manage"
+                className="block px-4 py-2 hover:bg-white/20 rounded-b-xl"
+              >
+                Manage Destination
+              </Link>
+            </div>
+          </div>
+
+          {/* Stories */}
+          <Link href="/stories" className="relative group">
+            Stories
+            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-400 transition-all group-hover:w-full"></span>
+          </Link>
+
+          {/* About */}
+          <Link href="/about" className="relative group">
+            About
+            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-400 transition-all group-hover:w-full"></span>
+          </Link>
         </nav>
 
         {/* Right Controls */}
@@ -89,10 +137,30 @@ export default function Hero() {
       {/* 📱 MOBILE MENU */}
       {open && (
         <div className="absolute z-30 top-20 left-0 w-full bg-black/90 backdrop-blur-lg p-6 flex flex-col gap-5 text-center lg:hidden">
+
           <Link href="/" onClick={() => setOpen(false)}>Home</Link>
-          <Link href="/destinations" onClick={() => setOpen(false)}>Destinations</Link>
-          <Link href="/destinations-add" onClick={() => setOpen(false)}>Add Destination</Link>
-          <Link href="/destinations-manage" onClick={() => setOpen(false)}>Manage</Link>
+
+          {/* Mobile Destinations */}
+          <div>
+            <button
+              onClick={() => setShowDestinations(!showDestinations)}
+              className="w-full flex justify-center items-center gap-2"
+            >
+              Destinations
+              <span className={`transition ${showDestinations ? "rotate-180" : ""}`}>
+                ⌄
+              </span>
+            </button>
+
+            {showDestinations && (
+              <div className="mt-2 flex flex-col gap-2 text-sm text-gray-300">
+                <Link href="/destinations">All Destinations</Link>
+                <Link href="/destinations-add">Add Destination</Link>
+                <Link href="/destinations-manage">Manage Destination</Link>
+              </div>
+            )}
+          </div>
+
           <Link href="/stories" onClick={() => setOpen(false)}>Stories</Link>
           <Link href="/about" onClick={() => setOpen(false)}>About</Link>
         </div>
@@ -101,9 +169,8 @@ export default function Hero() {
       {/* ✨ HERO CONTENT */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-20 sm:pt-28 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-        {/* LEFT CONTENT */}
+        {/* LEFT */}
         <div className="space-y-6 text-center lg:text-left">
-
           <p className="text-blue-400 text-sm">
             🌍 Trusted by 10,000+ travelers
           </p>
@@ -127,14 +194,12 @@ export default function Hero() {
         {/* RIGHT GLASS CARD */}
         <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-6 shadow-xl max-w-md mx-auto lg:ml-auto">
 
-          {/* Avatars */}
           <div className="flex -space-x-3 mb-4 justify-center lg:justify-start">
             <div className="w-10 h-10 bg-blue-500 rounded-full"></div>
             <div className="w-10 h-10 bg-green-500 rounded-full"></div>
             <div className="w-10 h-10 bg-red-500 rounded-full"></div>
           </div>
 
-          {/* Text */}
           <p className="text-sm text-gray-200 text-center lg:text-left">
             “TravelStory helped me discover places I never imagined. The
             experience was smooth and inspiring.”
