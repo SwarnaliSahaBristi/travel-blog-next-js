@@ -183,8 +183,7 @@ export default function Hero() {
 
           <p className="text-gray-300 max-w-lg mx-auto lg:mx-0">
             Explore hidden gems, curated destinations, and unforgettable
-            travel experiences tailored just for you.
-          </p>
+            travel experiences tailored just for you.</p>
 
           <button className="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition">
             Start Exploring
