@@ -6,14 +6,22 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { signOut, useSession } from "next-auth/react";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const session = useSession();
+  const pathname = usePathname();
+
   const [theme, setTheme] = useState("light");
   const [mounted, setMounted] = useState(false);
 
   const [profileOpen, setProfileOpen] = useState(false);
   const [mobileDestOpen, setMobileDestOpen] = useState(false);
+
+  /* =========================
+     ACTIVE LINK HELPER
+  ========================= */
+  const isActive = (path) => pathname === path;
 
   /* 🌗 Theme Load */
   useEffect(() => {
@@ -35,6 +43,13 @@ export default function Navbar() {
     localStorage.setItem("theme", newTheme);
   };
 
+  const linkClass = (path) =>
+    `transition relative ${
+      isActive(path)
+        ? "text-blue-500 font-semibold after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-blue-500"
+        : "hover:text-blue-500"
+    }`;
+
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
@@ -47,14 +62,20 @@ export default function Navbar() {
         {/* ================= DESKTOP MENU ================= */}
         <div className="hidden md:flex items-center gap-6 text-sm font-medium">
 
-          <Link href="/" className="hover:text-blue-500 transition">
+          <Link href="/" className={linkClass("/")}>
             Home
           </Link>
 
           {/* 🌍 DESTINATIONS DROPDOWN */}
           <div className="relative group">
 
-            <div className="flex items-center gap-1 cursor-pointer hover:text-blue-500 transition">
+            <div className={`flex items-center gap-1 cursor-pointer transition ${
+              isActive("/destinations") ||
+              isActive("/destinations-add") ||
+              isActive("/destinations-manage")
+                ? "text-blue-500 font-semibold"
+                : "hover:text-blue-500"
+            }`}>
               <span>Destinations</span>
               <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
             </div>
@@ -65,21 +86,33 @@ export default function Navbar() {
 
                 <Link
                   href="/destinations"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  className={`block px-4 py-2 ${
+                    isActive("/destinations")
+                      ? "bg-blue-100 dark:bg-blue-900 text-blue-600"
+                      : "hover:bg-gray-100 dark:hover:bg-gray-800"
+                  }`}
                 >
                   All Destinations
                 </Link>
 
                 <Link
                   href="/destinations-add"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  className={`block px-4 py-2 ${
+                    isActive("/destinations-add")
+                      ? "bg-blue-100 dark:bg-blue-900 text-blue-600"
+                      : "hover:bg-gray-100 dark:hover:bg-gray-800"
+                  }`}
                 >
                   Add Destination
                 </Link>
 
                 <Link
                   href="/destinations-manage"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  className={`block px-4 py-2 ${
+                    isActive("/destinations-manage")
+                      ? "bg-blue-100 dark:bg-blue-900 text-blue-600"
+                      : "hover:bg-gray-100 dark:hover:bg-gray-800"
+                  }`}
                 >
                   Manage Destination
                 </Link>
@@ -88,11 +121,11 @@ export default function Navbar() {
             </div>
           </div>
 
-          <Link href="/stories" className="hover:text-blue-500 transition">
+          <Link href="/stories" className={linkClass("/stories")}>
             Stories
           </Link>
 
-          <Link href="/about" className="hover:text-blue-500 transition">
+          <Link href="/about" className={linkClass("/about")}>
             About
           </Link>
         </div>
@@ -123,14 +156,22 @@ export default function Navbar() {
 
                   <Link
                     href="/profile"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className={`block px-4 py-2 ${
+                      isActive("/profile")
+                        ? "bg-blue-100 dark:bg-blue-900 text-blue-600"
+                        : "hover:bg-gray-100 dark:hover:bg-gray-800"
+                    }`}
                   >
                     Profile
                   </Link>
 
                   <Link
                     href="/settings"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className={`block px-4 py-2 ${
+                      isActive("/settings")
+                        ? "bg-blue-100 dark:bg-blue-900 text-blue-600"
+                        : "hover:bg-gray-100 dark:hover:bg-gray-800"
+                    }`}
                   >
                     Settings
                   </Link>
@@ -175,9 +216,14 @@ export default function Navbar() {
 
             <div className="flex flex-col gap-5 mt-10 text-base p-4">
 
-              <Link href="/">Home</Link>
+              <Link
+                href="/"
+                className={isActive("/") ? "text-blue-500 font-semibold" : ""}
+              >
+                Home
+              </Link>
 
-              {/* 🌍 MOBILE DESTINATIONS (BETTER DROPDOWN) */}
+              {/* 🌍 MOBILE DESTINATIONS */}
               <div className="border rounded-lg overflow-hidden">
 
                 <button
@@ -193,21 +239,33 @@ export default function Navbar() {
 
                     <Link
                       href="/destinations"
-                      className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-800"
+                      className={`px-4 py-2 ${
+                        isActive("/destinations")
+                          ? "text-blue-500 font-semibold"
+                          : "hover:bg-gray-200 dark:hover:bg-gray-800"
+                      }`}
                     >
                       All Destinations
                     </Link>
 
                     <Link
                       href="/destinations-add"
-                      className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-800"
+                      className={`px-4 py-2 ${
+                        isActive("/destinations-add")
+                          ? "text-blue-500 font-semibold"
+                          : "hover:bg-gray-200 dark:hover:bg-gray-800"
+                      }`}
                     >
                       Add Destination
                     </Link>
 
                     <Link
                       href="/destinations-manage"
-                      className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-800"
+                      className={`px-4 py-2 ${
+                        isActive("/destinations-manage")
+                          ? "text-blue-500 font-semibold"
+                          : "hover:bg-gray-200 dark:hover:bg-gray-800"
+                      }`}
                     >
                       Manage Destination
                     </Link>
@@ -216,13 +274,23 @@ export default function Navbar() {
                 )}
               </div>
 
-              <Link href="/stories">Stories</Link>
-              <Link href="/about">About</Link>
+              <Link
+                href="/stories"
+                className={isActive("/stories") ? "text-blue-500 font-semibold" : ""}
+              >
+                Stories
+              </Link>
+
+              <Link
+                href="/about"
+                className={isActive("/about") ? "text-blue-500 font-semibold" : ""}
+              >
+                About
+              </Link>
 
               {/* AUTH MOBILE */}
               {session.status === "authenticated" ? (
                 <div className="flex flex-col gap-2 pt-4">
-
                   <span className="text-sm font-medium">
                     {session.data.user.name}
                   </span>
@@ -251,6 +319,7 @@ export default function Navbar() {
             </div>
           </SheetContent>
         </Sheet>
+
       </div>
     </nav>
   );
