@@ -213,3 +213,22 @@
 .animate-marquee-vertical-reverse {
   animation: marquee-vertical-reverse var(--duration, 40s) linear infinite;
 }
+
+.blur-vignette {
+  pointer-events: none;
+
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+
+  mask-image: radial-gradient(
+    circle at center,
+    transparent calc(100% - var(--transition-length)),
+    black 100%
+  );
+
+  -webkit-mask-image: radial-gradient(
+    circle at center,
+    transparent calc(100% - var(--transition-length)),
+    black 100%
+  );
+}

@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
       >
         <NextAuthProvider>
           <header>
-            <Hero></Hero>
+            <Navbar></Navbar>
           </header>
           <main>{children}</main>
           <footer>

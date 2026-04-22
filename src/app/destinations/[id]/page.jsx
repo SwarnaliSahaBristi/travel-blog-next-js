@@ -29,11 +29,13 @@ export default async function DestinationDetails({ params }) {
         {destination.country}
       </p>
 
-      <div className="relative w-full h-[400px] rounded-xl overflow-hidden shadow-lg">
-        <img
+      <div className="relative w-full h-200 rounded-xl overflow-hidden shadow-lg">
+        <Image
           src={destination.image}
           alt={destination.name}
           className="object-cover"
+          width={1000}
+          height={2000}
         />
       </div>
 

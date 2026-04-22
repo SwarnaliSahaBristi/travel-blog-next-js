@@ -9,6 +9,7 @@ import TravelStories from "@/components/Home/TravelStories/TravelStories";
 export default function Home() {
   return (
     <div className="flex flex-col gap-16">
+      <Hero></Hero>
       <PopularDestinations></PopularDestinations>
       <Categories></Categories>
       <TravelStories></TravelStories>
