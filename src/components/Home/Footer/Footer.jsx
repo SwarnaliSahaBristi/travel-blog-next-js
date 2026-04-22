@@ -24,18 +24,21 @@ export default function Footer() {
 
   return (
     <footer className="bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 mt-16">
-      <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-30">
         {/* Logo / Brand */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-3">
+          {/* Brand Name */}
           <TextAnimation
-            text="TravelStory"
-            className="text-7xl font-bold text-primary"
+            text="Travel Story"
+            classname="text-3xl md:text-5xl font-bold tracking-tight text-primary"
             direction="up"
           />
+
+          {/* Tagline */}
           <TextAnimation
-            text="Explore the world with curated destinations, travel stories, and guides to make your trips unforgettable."
-            classname="text-sm text-gray-500 dark:text-gray-400"
-            direction="down"
+            text="Explore the world with curated destinations, travel stories, and guides that make every journey unforgettable."
+            classname="text-sm md:text-base text-gray-500 dark:text-gray-400 max-w-md leading-relaxed"
+            direction="up"
           />
         </div>
 
