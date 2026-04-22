@@ -1,5 +1,6 @@
 import Marquee from "@/components/ui/marquee";
 import { cn } from "@/lib/utils";
+import TextAnimation from "../../../../components/uilayouts/scroll-text";
 
 /* 🌍 YOUR REAL TESTIMONIAL DATA */
 const reviews = [
@@ -78,9 +79,11 @@ export default function Testimonials() {
 
       {/* 🌟 HEADER */}
       <div className="text-center mb-14 px-6">
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
-          What Travelers Say About Us
-        </h2>
+        <TextAnimation
+          text="What Travelers Say About Us"
+          classname="text-4xl md:text-6xl font-bold"
+          direction="up"
+        />
 
         <p className="mt-4 text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
           Real experiences from real travelers who discovered amazing journeys through TravelStory.

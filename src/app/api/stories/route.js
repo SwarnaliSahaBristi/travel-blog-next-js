@@ -14,7 +14,7 @@ export let stories = [
     id: 2,
     title: "Hiking the Himalayas",
     author: "Rohan Singh",
-    image: "https://images.unsplash.com/photo-1508264165352-258c5f5400d2",
+    image: "https://images.unsplash.com/photo-1607836046730-3317bd58a31b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: "The Himalayas are breathtaking. Each step brought me closer to nature's serenity and the majestic mountains...",
     continent: "Asia",
     rating: 4,
