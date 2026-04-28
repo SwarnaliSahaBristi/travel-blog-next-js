@@ -93,7 +93,7 @@ export default function AboutPage() {
                 text="About TravelStory 🌍"
                 classname="text-4xl md:text-6xl font-bold max-w-3xl"
                 direction="up"
-              />
+            />
         <TextAnimation
                 text="Discover beautiful places and travel inspiration."
                 classname="text-lg md:text-xl text-gray-600 max-w-2xl"
