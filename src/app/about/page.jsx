@@ -84,34 +84,31 @@ const imageAnim = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-black text-gray-800 dark:text-gray-200 px-6 py-16 space-y-20">
-
       {/* =========================
           HERO
       ========================= */}
       <div className="text-center space-y-2">
         <TextAnimation
-                text="About TravelStory 🌍"
-                classname="text-4xl md:text-6xl font-bold max-w-3xl"
-                direction="up"
-          />
+          text="About TravelStory 🌍"
+          classname="text-4xl md:text-6xl font-bold max-w-3xl"
+          direction="up"
+        />
         <TextAnimation
-                text="Discover beautiful places and travel inspiration."
-                classname="text-lg md:text-xl text-gray-600 max-w-2xl"
-                direction="up"
-              />
+          text="Discover beautiful places and travel inspiration."
+          classname="text-lg md:text-xl text-gray-600 max-w-2xl"
+          direction="up"
+        />
       </div>
 
       {/* =========================
           GALLERY
       ========================= */}
       <section className="max-w-6xl mx-auto">
-
         <h2 className="text-2xl font-semibold text-center mb-8">
           Travel Gallery
         </h2>
 
         <div className="columns-2 md:columns-3 gap-4 space-y-4">
-
           {images.map((img, i) => (
             <motion.img
               key={i}
@@ -124,7 +121,6 @@ export default function AboutPage() {
               className="w-full rounded-xl shadow-md break-inside-avoid cursor-pointer"
             />
           ))}
-
         </div>
       </section>
 
@@ -138,12 +134,11 @@ export default function AboutPage() {
         viewport={{ once: false }}
         className="max-w-3xl mx-auto text-center"
       >
-        <h2 className="text-xl font-semibold mb-2">
-          What is TravelStory?
-        </h2>
+        <h2 className="text-xl font-semibold mb-2">What is TravelStory?</h2>
 
         <p className="text-gray-500">
-          A platform to explore destinations, activities and plan your journey easily.
+          A platform to explore destinations, activities and plan your journey
+          easily.
         </p>
       </motion.section>
 
@@ -151,15 +146,12 @@ export default function AboutPage() {
           MARQUEE FEATURES (NEW)
       ========================= */}
       <section className="py-10 overflow-hidden">
-
         <h2 className="text-2xl font-semibold text-center mb-10">
           What You Can Do
         </h2>
 
         <div className="relative w-full overflow-hidden">
-
           <div className="flex w-max animate-marquee hover:pause space-x-8">
-
             {[...features, ...features].map((item, i) => {
               const Icon = item.icon;
 
@@ -170,17 +162,12 @@ export default function AboutPage() {
                 >
                   <Icon className="mx-auto text-blue-500 mb-3" size={32} />
 
-                  <h3 className="font-semibold mb-1">
-                    {item.title}
-                  </h3>
+                  <h3 className="font-semibold mb-1">{item.title}</h3>
 
-                  <p className="text-sm text-gray-500">
-                    {item.desc}
-                  </p>
+                  <p className="text-sm text-gray-500">{item.desc}</p>
                 </div>
               );
             })}
-
           </div>
         </div>
 
@@ -203,7 +190,6 @@ export default function AboutPage() {
             }
           }
         `}</style>
-
       </section>
 
       {/* =========================
@@ -223,7 +209,6 @@ export default function AboutPage() {
           travelstory@example.com
         </p>
       </motion.section>
-
     </div>
   );
 }
