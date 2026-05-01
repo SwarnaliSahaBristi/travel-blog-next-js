@@ -97,7 +97,7 @@ export default function AboutPage() {
           text="Discover beautiful places and travel inspiration."
           classname="text-lg md:text-xl text-gray-600 max-w-2xl"
           direction="up"
-        />
+         />
       </div>
 
       {/* =========================
