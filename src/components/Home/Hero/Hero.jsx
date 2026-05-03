@@ -24,10 +24,15 @@ export default function Hero() {
           autoPlay
           loop
           muted
+          preload="none"
+          poster="/images/hero.jpg"
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/videos/hero.mp4" type="video/mp4" />
+          <source
+            src="https://res.cloudinary.com/drdzheiz2/video/upload/q_auto,f_auto,w_1280/hero_vsqr3z.mp4"
+            type="video/mp4"
+          />
         </video>
 
         {/* 🌗 Overlay */}
